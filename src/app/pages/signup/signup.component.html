@@ -1,1 +1,85 @@
-<p>signup works!</p>
+<div class="auth-wrapper">
+  <div class="card-custom auth-card shadow-lg">
+    <!-- Header/Logo Section -->
+    <div class="text-center mb-4">
+      <div class="mb-3 d-inline-flex align-items-center justify-content-center" 
+           style="width: 56px; height: 56px; background: var(--primary); border-radius: 12px; color: white;">
+        <i class="bi bi-person-plus-fill" style="font-size: 1.75rem;"></i>
+      </div>
+      <h2 class="auth-title">Create Account</h2>
+      <p class="auth-subtitle">Join the FC Prototype portal today</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Full Name -->
+      <div class="mb-3">
+        <label for="fullName" class="form-label">Full Name</label>
+        <div class="position-relative">
+          <input type="text" id="fullName" class="input-custom" formControlName="fullName" placeholder="John Doe"
+            [class.border-danger]="f['fullName'].invalid && f['fullName'].touched">
+        </div>
+        @if (f['fullName'].invalid && f['fullName'].touched) {
+          <span class="text-danger" style="font-size: 0.75rem; font-weight: 600; margin-top: 4px; display: block;">
+            Full name is required.
+          </span>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" class="input-custom" formControlName="email" placeholder="name@company.com"
+          [class.border-danger]="f['email'].invalid && f['email'].touched">
+        @if (f['email'].invalid && f['email'].touched) {
+          <span class="text-danger" style="font-size: 0.75rem; font-weight: 600; margin-top: 4px; display: block;">
+            @if (f['email'].hasError('required')) { Email is required. }
+            @if (f['email'].hasError('email')) { Please enter a valid email. }
+          </span>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" class="input-custom" formControlName="password" placeholder="••••••••"
+          [class.border-danger]="f['password'].invalid && f['password'].touched">
+        @if (f['password'].invalid && f['password'].touched) {
+          <span class="text-danger" style="font-size: 0.75rem; font-weight: 600; margin-top: 4px; display: block;">
+            Minimum 6 characters required.
+          </span>
+        }
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-4">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" id="confirmPassword" class="input-custom" formControlName="confirmPassword" placeholder="••••••••"
+          [class.border-danger]="f['confirmPassword'].invalid && f['confirmPassword'].touched">
+        @if (f['confirmPassword'].invalid && f['confirmPassword'].touched) {
+          <span class="text-danger" style="font-size: 0.75rem; font-weight: 600; margin-top: 4px; display: block;">
+            @if (f['confirmPassword'].hasError('required')) { Please confirm password. }
+            @if (f['confirmPassword'].hasError('passwordMismatch')) { Passwords do not match. }
+          </span>
+        }
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-custom w-100 shadow-sm" [disabled]="registerForm.invalid || isSubmitting">
+        @if (isSubmitting) {
+          <span class="spinner-border spinner-border-sm me-2"></span> Creating Account...
+        } @else {
+          Create Account <i class="bi bi-arrow-right ms-2"></i>
+        }
+      </button>
+
+    </form>
+
+    <!-- Footer Links -->
+    <div class="text-center mt-4 pt-2 border-top">
+      <span class="text-muted small">Already have an account? </span>
+      <a routerLink="/login" class="text-primary small text-decoration-none fw-bold">Sign in here</a>
+    </div>
+
+  </div>
+</div>

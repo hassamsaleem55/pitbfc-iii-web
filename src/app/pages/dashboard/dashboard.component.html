@@ -1,1 +1,37 @@
-<p>dashboard works!</p>
+<!-- Main Dashboard Content Area -->
+
+<!-- Search / Filter Input -->
+<div class="search-container">
+    <input type="text" class="search-input" placeholder="Filter by Service name..." [value]="searchTerm()"
+        (input)="onSearch($event)">
+</div>
+
+<!-- Service Cards Grid -->
+<div class="grid-container">
+
+    <!-- Loading State -->
+    <!-- Loading State with Spinner -->
+    @if (isLoading()) {
+    <div class="spinner-container">
+        <div class="loading-spinner"></div>
+        <p>Loading services...</p>
+    </div>
+    }
+
+    <!-- Service Cards -->
+    @if (!isLoading()) {
+    @for (service of filteredServices(); track service.title) {
+    <div class="service-card" [ngClass]="service.code | lowercase" (click)="onCardClick(service)">
+        <i [class]="service.serviceIcon"></i>
+        <span class="card-title">{{ service.title | titlecase}}</span>
+    </div>
+    }
+
+    <!-- Empty State handling - only show if not loading and no services found -->
+    @if (filteredServices().length === 0) {
+    <div class="empty-state-grid">
+        <p>No services found matching "{{ searchTerm() }}"</p>
+    </div>
+    }
+    }
+</div>

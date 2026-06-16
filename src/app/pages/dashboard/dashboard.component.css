@@ -1,0 +1,340 @@
+/* ================== SEARCH BAR ================== */
+.search-container {
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #558b53;
+  box-shadow: 0 0 0 0.2rem rgba(85, 139, 83, 0.25);
+}
+
+/* ================== GRID & CARDS ================== */
+.grid-container {
+  display: grid;
+  /* Adjusts nicely up to ~8 columns like the image */
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 6px; 
+}
+
+.service-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+  word-wrap: break-word;
+  max-width: 100%;
+  
+  /* Prevent super long text from breaking the square aspect ratio */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-state-grid {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #555;
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.5);
+  border-radius: 8px;
+}
+
+.rdl {
+    background: #2E8BEF;
+}
+
+.bop {
+    background: #396ba1;
+}
+
+.cir {
+    background: #c54072;
+}
+
+.iap {
+    background: #00636c;
+}
+
+.wsc, .scc, .dlc {
+    background: #5636b0;
+}
+
+.ntn {
+    background: #6b2604;
+}
+
+.ima {
+    background: #e0522f;
+}
+
+.mop, .nct, .tnv, .deac, .dlr, .php {
+    background: #780765;
+}
+
+.gst {
+    background: #408196;
+}
+
+.gc {
+    background: #8f0338;
+}
+
+.ec {
+    background: #bb9708;
+}
+
+.is {
+    background: #bb9708;
+}
+
+.cob {
+    background: #005a5d;
+}
+
+.pme {
+    background: #5636b0;
+}
+
+.imf {
+    background: #a41600;
+}
+
+.isd {
+    background: #1d0077;
+}
+
+.eob {
+    background: #02927c;
+}
+
+.icc {
+    background: #520484;
+}
+
+.lr {
+    background: #844801;
+}
+
+.tpc {
+    background: #036387;
+}
+
+.psi {
+    background: #998225;
+}
+
+.eia, .idl, .cr, .mt, .grm, .wcc, .cnc, .dsl, .rch {
+    background: #806706;
+}
+
+.lwa, .wcr {
+    background: #10cca6;
+}
+
+.clp {
+    background: #844801;
+}
+
+.cud, .apv, .er, .ppm {
+    background: #036387;
+}
+
+.nff, .esp, .bpv, .err, .ss, .scn, .pef {
+    background: #6b2604;
+}
+
+.nds, .tpw, .mwm, .ajv, .eiap {
+    background: #e0522f;
+}
+
+.nep, .ewd, .nob, .ihp {
+    background: #5636b0;
+}
+
+.ntp, .fad, .opv, .phs, .coc, .tp, .ibp, .ppr, .abp, .bfl, .nhb {
+    background: #00636c;
+}
+
+.ehp, .row, .opr, .wvr, .mg {
+    background: #e54f4f;
+}
+
+.ddl, .cwm, .ahs, .ieed, .fna, .pst {
+    background: #e58c01;
+}
+
+.bmis {
+    background: #337ab7;
+}
+
+.dea {
+    background: #10cca6;
+}
+
+.nds, .nos, .dwm, .cor, .ihl {
+    background: #e0522f;
+}
+
+.aph, .obr {
+    background: #10cca6;
+}
+
+.ahf, .rwm, .afr {
+    background: #5636b0;
+}
+
+.ald, .mu, .msb {
+    background: #00636c;
+}
+
+.al, .cbg, .cld, .cut {
+    background: none repeat scroll 0 0 #2e8bef;
+}
+
+.bc, .hsc, .mcc, .cch, .dli {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.cc, .pvc, .pwd, .col, .ccl, .chm, .ehd, .vis, .ppt {
+    background: none repeat scroll 0 0 #e0522f;
+}
+
+.eze, .d, .lg, .crc, .cra, .alm, .eht, .ipl, .idc, .eab {
+    background: none repeat scroll 0 0 #10cca6;
+}
+
+.dc, .dmr, .dcc, .hpp, .ffm {
+    background: none repeat scroll 0 0 #2e8bef;
+}
+
+.mc, .vdv, .icf, .dch {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.dvc, .dcl {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.tt, .vmr, .bk, .rbg, .dac, .nst, .scp, .wbf {
+    background: none repeat scroll 0 0 #10cca6;
+}
+
+.ezd, .nic, .fir, .ctn, .frc, .bpa, .dpc, .nim, .ehg {
+    background: none repeat scroll 0 0 #5636b0;
+}
+
+.iof, .jvc, .pmp, .nbb {
+    background: none repeat scroll 0 0 #6bb61d;
+}
+
+.mvr, .mdr, .stp, .prc, .ncw {
+    background: none repeat scroll 0 0 #5636b0;
+}
+
+.vto, .pcc, .dld {
+    background: none repeat scroll 0 0 #e0522f;
+}
+
+.nks, .pch, .pmf {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.rp, .pcl, .mdc, .poe, .rrm, .pt {
+    background: none repeat scroll 0 0 #2e8bef;
+}
+
+.rsr, .dl, .ncp, .prh, .ddc {
+    background: none repeat scroll 0 0 #e0522f;
+}
+
+.p {
+    background: none repeat scroll 0 0 #2e8bef;
+}
+
+.es {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.po, .phm {
+    background: none repeat scroll 0 0 #6bb61d;
+}
+
+.vof, .ppi {
+    background: none repeat scroll 0 0 #2e8bef;
+}
+
+.mwa {
+    background: none repeat scroll 0 0 #ffcc00;
+}
+
+.lwa {
+    background: #10cca6;
+}
+
+.psc {
+    background: #c54072;
+}
+
+.psr {
+    background: #8f0338;
+}
+
+.rsc {
+    background: #00636c;
+}
+
+.rap {
+    background: #bb9708;
+}
+
+.cac, .dmf {
+    background: #bb9708;
+}
+
+.car, .mmf {
+    background: #6b2604;
+}
+
+.drh, .dhf {
+    background: #6b2604;
+}
