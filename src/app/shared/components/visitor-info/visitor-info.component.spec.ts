@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MetaInfoComponent } from './meta-info.component';
+import { VisitorInfoComponent } from './visitor-info.component';
 
-describe('MetaInfoComponent', () => {
-  let component: MetaInfoComponent;
-  let fixture: ComponentFixture<MetaInfoComponent>;
+describe('VisitorInfoComponent', () => {
+  let component: VisitorInfoComponent;
+  let fixture: ComponentFixture<VisitorInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MetaInfoComponent],
+      imports: [VisitorInfoComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(MetaInfoComponent);
+    fixture = TestBed.createComponent(VisitorInfoComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

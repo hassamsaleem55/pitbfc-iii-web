@@ -1,1 +1,21 @@
-<p>cnic-cancellation works!</p>
+<app-wizard title="Cancellation Of CNIC, NADRA" [steps]="wizardSteps" [currentStep]="currentStep" [isSaving]="isSaving"
+  (next)="onNextStep()" (previous)="onPreviousStep()">
+
+  <div wizard-header-actions class="d-flex shadow-sm rounded overflow-hidden">
+    <input type="text" class="nadra-input border-0" placeholder="Type Applicant ID..."
+      style="width: 200px; border-radius: 0; height: 34px; font-size: 0.8rem;">
+    <button class="btn btn-warning btn-sm rounded-0 border-0 px-3 text-white"><i class="bi bi-search"></i></button>
+  </div>
+
+  <form [formGroup]="cancellationForm">
+    @if (currentStep === 1) {
+    <app-visitor-info (formReady)="handleFormReady('visitor', $event)"></app-visitor-info>
+    }
+    @if (currentStep === 2) {
+    <app-general-info (formReady)="handleFormReady('general', $event)"></app-general-info>
+    }
+    @if (currentStep === 3) {
+    <app-address-details (formReady)="handleFormReady('address', $event)"></app-address-details>
+    }
+  </form>
+</app-wizard>

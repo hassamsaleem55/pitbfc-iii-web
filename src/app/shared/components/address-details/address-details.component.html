@@ -1,1 +1,47 @@
-<p>address-details works!</p>
+<div class="nadra-section-title"><i class="bi bi-caret-down-fill"></i> Address Details</div>
+<div [formGroup]="form" class="grid-2">
+  <!-- Left Column -->
+  <div class="d-flex flex-column gap-3">
+    <div><label class="nadra-label">House No <span class="urdu-text">مکان نمبر</span></label><input class="nadra-input" formControlName="houseNo"></div>
+    <div><label class="nadra-label">Block No. <span class="urdu-text">بلاک نمبر</span></label><input class="nadra-input" formControlName="blockNo"></div>
+    <div><label class="nadra-label">Neighbourhood</label><input class="nadra-input" formControlName="neighbourhood"></div>
+    <div><label class="nadra-label">Additional Information</label><input class="nadra-input" formControlName="additionalInfo"></div>
+    
+    <div class="grid-2">
+      <div>
+        <label class="nadra-label">City <span class="urdu-text">شہر</span></label>
+        <select class="nadra-select" formControlName="city"><option value="">Choose...</option></select>
+      </div>
+      <div>
+        <label class="nadra-label">Division <span class="req-star">*</span> <span class="urdu-text">ڈویژن</span></label>
+        <select class="nadra-select" formControlName="division"><option value="LAHORE">LAHORE</option></select>
+      </div>
+    </div>
+    
+    <div class="grid-3">
+      <div><label class="nadra-label">District</label><select class="nadra-select" formControlName="district"><option value="">Choose...</option></select></div>
+      <div><label class="nadra-label">Tehsil</label><select class="nadra-select" formControlName="tehsil"><option value="">Choose...</option></select></div>
+      <div><label class="nadra-label">UC No. <span class="req-star">*</span></label><select class="nadra-select" formControlName="ucNo"><option value="">Choose...</option></select></div>
+    </div>
+  </div>
+
+  <!-- Right Column (Urdu Parallel column) -->
+  <div class="d-flex flex-column gap-3">
+    <div>
+        <label class="nadra-label">Street No <span class="urdu-text">گلی نمبر</span></label>
+        <input class="nadra-input" formControlName="streetNo">
+    </div>
+    <div>
+        <label class="nadra-label"><span>&nbsp;</span> <span class="urdu-text">محلہ</span></label>
+        <input class="nadra-input urdu-text" dir="rtl" placeholder="محلہ درج کریں">
+    </div>
+    <div>
+        <label class="nadra-label"><span>&nbsp;</span> <span class="urdu-text">اضافی معلومات</span></label>
+        <input class="nadra-input urdu-text" dir="rtl" placeholder="اضافی معلومات">
+    </div>
+    <div>
+        <label class="nadra-label">Address <span class="urdu-text">پتہ</span></label>
+        <textarea class="nadra-input" formControlName="address" style="height: 120px;"></textarea>
+    </div>
+  </div>
+</div>

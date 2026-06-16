@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component'
-// import { CnicCancellation } from './fc-services/cnic-cancellation/cnic-cancellation';
+import { CnicCancellationComponent } from './pages/fc-services/cnic-cancellation/cnic-cancellation.component';
 
 // Auth Components
 import { LoginComponent } from './pages/login/login.component';
@@ -22,7 +22,7 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             { path: '', component: DashboardComponent },
-            // { path: 'cnic-cancellation', component: CnicCancellation },
+            { path: 'cnic-cancellation', component: CnicCancellationComponent },
         ]
     },
 

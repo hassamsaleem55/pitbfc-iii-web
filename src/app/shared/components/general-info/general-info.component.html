@@ -1,1 +1,57 @@
-<p>general-info works!</p>
+<div class="nadra-section-title"><i class="bi bi-caret-down-fill"></i> General Information</div>
+<div [formGroup]="form" class="grid-2">
+  <div>
+    <label class="nadra-label">Applicant Name</label>
+    <input class="nadra-input" formControlName="applicantName">
+  </div>
+  <div>
+    <label class="nadra-label"><span>&nbsp;</span> <span class="urdu-text">درخواست دہندہ کا نام</span></label>
+    <input class="nadra-input urdu-text" formControlName="applicantNameUrdu">
+  </div>
+  
+  <div>
+    <label class="nadra-label">Father Name</label>
+    <input class="nadra-input" formControlName="fatherName">
+  </div>
+  <div>
+    <label class="nadra-label"><span>&nbsp;</span> <span class="urdu-text">والد کا نام</span></label>
+    <input class="nadra-input urdu-text" formControlName="fatherNameUrdu">
+  </div>
+  
+  <div>
+    <label class="nadra-label">Applicant CNIC <span class="urdu-text">درخواست گزار شناختی کارڈ</span></label>
+    <input class="nadra-input" formControlName="applicantCnic" placeholder="00000-0000000-0">
+  </div>
+  <div>
+    <label class="nadra-label">Date of Birth <span class="req-star">*</span> <span class="urdu-text">تاریخ پیدائش</span></label>
+    <input type="date" class="nadra-input" formControlName="dob">
+  </div>
+  
+  <div>
+    <label class="nadra-label">Gender <span class="req-star">*</span> <span class="urdu-text">جنس</span></label>
+    <select class="nadra-select" formControlName="gender">
+      <option value="">Choose...</option>
+      <option value="MALE">MALE</option>
+      <option value="FEMALE">FEMALE</option>
+      <option value="TRANSGENDER">TRANSGENDER</option>
+    </select>
+  </div>
+  <div>
+    <label class="nadra-label">Religion <span class="req-star">*</span> <span class="urdu-text">مذہب</span></label>
+    <select class="nadra-select" formControlName="religion">
+      <option value="">Choose...</option>
+      <option value="ISLAM">ISLAM</option>
+      <option value="CHRISTIANITY">CHRISTIANITY</option>
+      <option value="HINDUISM">HINDUISM</option>
+    </select>
+  </div>
+  
+  <div>
+    <label class="nadra-label">Issuance Date</label>
+    <input type="date" class="nadra-input" formControlName="issuanceDate">
+  </div>
+  <div>
+    <label class="nadra-label">Issuance No.</label>
+    <input class="nadra-input" formControlName="issuanceNo">
+  </div>
+</div>

@@ -1,0 +1,133 @@
+<div [formGroup]="form" class="d-flex flex-column flex-xl-row gap-4">
+  <div class="flex-grow-1">
+    <div class="grid-3">
+      <div><label class="nadra-label">QMatic Date</label><input class="nadra-input" formControlName="qmaticDate"
+          readonly style="background: #f1f5f9;"></div>
+      <div><label class="nadra-label">QMatic Time</label><input class="nadra-input" formControlName="qmaticTime"
+          readonly style="background: #f1f5f9;"></div>
+      <div><label class="nadra-label">QMatic ID <span class="req-star">*</span></label><input class="nadra-input"
+          formControlName="qmaticId" placeholder="Enter Qmatic ID"></div>
+    </div>
+
+    <div class="grid-3">
+      <div>
+        <label class="nadra-label">Status <span class="req-star">*</span></label>
+        <select class="nadra-select" formControlName="status">
+          @for (item of statuses; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+      <div>
+        <label class="nadra-label">Service Type <span class="req-star">*</span></label>
+        <select class="nadra-select" formControlName="serviceType">
+          @for (item of serviceTypes; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+      <div>
+        <label class="nadra-label">Delivery Type <span class="req-star">*</span></label>
+        <select class="nadra-select" formControlName="deliveryType">
+          @for (item of deliveryTypes; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div>
+        <label class="nadra-label">Application Type <span class="req-star">*</span></label>
+        <select class="nadra-select" formControlName="applicationType">
+          @for (item of applicationTypes; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+      <div><label class="nadra-label">Service Fee/Amount</label><input type="number" class="nadra-input"
+          formControlName="serviceFee"></div>
+      <div><label class="nadra-label">Challan No.</label><input class="nadra-input" formControlName="challanNo"
+          placeholder="Enter Challan No."></div>
+    </div>
+
+    <div class="grid-3">
+      <div>
+        <label class="nadra-label">Objection</label>
+        <select class="nadra-select" formControlName="objection">
+          @for (item of objections; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+      <div><label class="nadra-label">Delivery Date</label><input class="nadra-input" formControlName="deliveryDate"
+          readonly style="background: #f1f5f9;"></div>
+      <div>
+        <label class="nadra-label">Visitor Type/NIC Holder <span class="req-star">*</span></label>
+        <select class="nadra-select" formControlName="visitorType">
+          @for (item of visitorTypes; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div>
+        <label class="nadra-label">Visitor CNIC <span class="req-star">*</span></label>
+        <input class="nadra-input" formControlName="visitorCnic" placeholder="00000-0000000-0" maxlength="15"
+          (input)="onCnicInput($event)"
+          [class.is-invalid]="form.get('visitorCnic')?.invalid && form.get('visitorCnic')?.touched">
+        @if (form.get('visitorCnic')?.touched && form.get('visitorCnic')?.errors?.['pattern']) {
+        <div class="text-danger small">Format must be 00000-0000000-0</div>
+        }
+      </div>
+
+      <div>
+        <label class="nadra-label">Visitor Mobile Holder</label>
+        <select class="nadra-select" formControlName="visitorMobileHolder">
+          @for (item of mobileHolders; track item) { <option [value]="item">{{item}}</option> }
+        </select>
+      </div>
+      <div>
+        <label class="nadra-label">Visitor Mobile No.</label>
+        <input class="nadra-input" formControlName="visitorMobileNo" placeholder="03XXXXXXXXX" maxlength="11"
+          (input)="onMobileInput($event)"
+          [class.is-invalid]="form.get('visitorMobileNo')?.invalid && form.get('visitorMobileNo')?.touched">
+        @if (form.get('visitorMobileNo')?.touched && form.get('visitorMobileNo')?.errors?.['pattern']) {
+        <div class="text-danger small">Must be 11 digits (e.g. 03001234567)</div>
+        }
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <label class="nadra-label">Visitor Name <span class="req-star">*</span></label>
+        <input class="nadra-input" formControlName="visitorName" placeholder="Enter Visitor Name"
+          [class.is-invalid]="form.get('visitorName')?.invalid && form.get('visitorName')?.touched">
+        @if (form.get('visitorName')?.touched && form.get('visitorName')?.errors) {
+        <div class="text-danger small">
+          @if (form.get('visitorName')?.errors?.['required']) { Name is required. }
+          @if (form.get('visitorName')?.errors?.['minlength']) { Minimum 3 characters. }
+          @if (form.get('visitorName')?.errors?.['pattern']) { Only letters allowed. }
+        </div>
+        }
+      </div>
+      <div><label class="nadra-label">Visitor Address</label><input class="nadra-input" formControlName="visitorAddress"
+          placeholder="Enter Visitor Address"></div>
+    </div>
+    <div class="mt-2"><label class="nadra-label">Remarks/Reason <span class="req-star">*</span></label><input
+        class="nadra-input" formControlName="remarks" placeholder="Enter Remarks/Reason"></div>
+  </div>
+
+  <!-- Camera Section remains unchanged -->
+  <div class="card-custom p-3 text-center bg-light" style="width: 260px;">
+    <div class="rounded bg-dark mb-3 d-flex align-items-center justify-content-center overflow-hidden"
+      style="aspect-ratio: 4/3;">
+      <video #videoElement [style.display]="isCameraActive ? 'block' : 'none'" autoplay class="w-100 h-100"></video>
+      <canvas #canvasElement style="display: none;"></canvas>
+      @if (imagePreview() && !isCameraActive) { <img [src]="imagePreview()" class="w-100 h-100 object-fit-cover"> }
+      @if (!imagePreview() && !isCameraActive) { <i class="bi bi-camera text-white-50" style="font-size: 2.5rem;"></i> }
+    </div>
+    <div class="d-grid gap-2">
+      <button type="button" class="btn btn-sm" [class.btn-info]="!isCameraActive" [class.btn-success]="isCameraActive"
+        (click)="isCameraActive ? capturePhoto() : startCamera()">
+        {{ isCameraActive ? 'Capture' : 'Take a photo' }}
+      </button>
+      <div class="d-flex gap-1">
+        <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+        <button type="button" class="btn btn-sm btn-outline-primary flex-grow-1 fw-bold"
+          (click)="triggerUpload()">Upload</button>
+        <button type="button" class="btn btn-sm btn-danger fw-bold" (click)="clearPhoto()">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
