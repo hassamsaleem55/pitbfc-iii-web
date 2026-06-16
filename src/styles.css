@@ -1,3 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
 
-@import 'tailwindcss';
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --success: #10b981;
+  --danger: #ef4444;
+  --nadra-green: #065f46;
+}
+
+body {
+  background-color: var(--bg-main);
+  background: radial-gradient(circle at top right, #e0e7ff, transparent),
+    radial-gradient(circle at bottom left, #f1f5f9, transparent);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ================== LAYOUT ================== */
+.page-body {
+  padding: 2rem 1rem;
+  max-width: 1350px;
+  margin: 0 auto;
+  min-height: 84.5vh;
+}
+
+.card-custom {
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ================== FORMS & INPUTS ================== */
+.input-custom, .nadra-input, .nadra-select {
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  padding: 0 0.75rem;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: all 0.2s;
+  background-color: white;
+}
+
+.input-custom:focus, .nadra-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.is-invalid { border-color: var(--danger) !important; }
+.req-star { color: var(--danger); margin-left: 2px; }
+
+.nadra-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.urdu-text {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  color: var(--nadra-green);
+  font-size: 0.9rem;
+}
+
+.nadra-section-title {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  padding: 0.6rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  margin: 1.5rem 0 1rem 0;
+  border-left: 4px solid var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ================== GRID SYSTEM ================== */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem; }
+
+/* ================== BUTTONS ================== */
+.btn-custom {
+  height: 42px; border-radius: 8px; background-color: var(--primary); color: white;
+  border: none; font-weight: 600; width: 100%; cursor: pointer; transition: 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-custom:hover:not(:disabled) { background-color: var(--primary-hover); transform: translateY(-1px); }
+.btn-custom:disabled { background-color: #cbd5e1; cursor: not-allowed; }
+
+/* ================== AUTH WRAPPERS ================== */
+.auth-wrapper { min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+.auth-card { width: 100%; max-width: 440px; padding: 2.5rem; }
+.auth-title { font-size: 1.75rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; text-align: center; }
+.auth-subtitle { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; text-align: center; }
+/* Center the spinner inside the grid or page container */
+.spinner-container {
+    grid-column: 1 / -1; /* Spans across all grid columns if using display: grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    width: 100%;
+}
+
+/* Spinner graphic style */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Light gray background track */
+    border-top: 5px solid #008080; /* Teal/Blue foreground (adjust to match your color-teal theme) */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+/* Spin animation rotation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
